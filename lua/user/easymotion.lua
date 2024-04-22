@@ -6,6 +6,10 @@ local M = {
 }
 
 function M.config()
+   require("pounce").setup{
+     accept_keys = "asdfghjklqwertyuiopzxcvbnm",
+   }
+
 end
 
 return M

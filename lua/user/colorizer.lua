@@ -1,7 +1,7 @@
 local M = {
   "NvChad/nvim-colorizer.lua",
-  event = { "BufReadPost", "BufNewFile" },
 }
+-- event = { "BufReadPost", "BufNewFile" },
 
 function M.config()
   require("colorizer").setup {

@@ -28,6 +28,12 @@ local M = {
       priority = 1000,
    },
    {
+      "rose-pine/neovim",
+      name = "rose-pine",
+      lazy = false,
+      priority = 1000,
+   },
+   {
       "ayu-theme/ayu-vim",
       lazy = false,
       priority = 1000,

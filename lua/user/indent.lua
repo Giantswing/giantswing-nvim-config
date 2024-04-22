@@ -19,9 +19,9 @@ function M.config()
          "Trouble",
          "text",
       },
-      show_trailing_blankline_indent = true,
-      show_first_indent_level = true,
-      use_treesitter = true,
+      show_trailing_blankline_indent = false,
+      show_first_indent_level = false,
+      use_treesitter = false,
       show_current_context = true,
    }
 end

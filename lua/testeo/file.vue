@@ -1,3 +1,7 @@
+<!-- <template> -->
+<!-- <template> -->
+<!-- <template> -->
+
 <template>
    <CheckinsNewModal
       :showIf="showIf"

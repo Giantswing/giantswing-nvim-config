@@ -44,7 +44,7 @@ vim.opt.fillchars:append {
   stl = " ",
 }
 
-vim.opt.scrolloff = 16
+vim.opt.scrolloff = 13
 
 vim.opt.shortmess:append "c"
 

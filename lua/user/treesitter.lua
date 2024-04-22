@@ -1,6 +1,5 @@
 local M = {
    "nvim-treesitter/nvim-treesitter",
-   event = { "BufReadPost", "BufNewFile" },
    build = ":TSUpdate",
 }
 
@@ -31,8 +30,8 @@ function M.config()
       indent = {
          enable = true,
       },
-      auto_install = true,
-      sync_install = true,
+      auto_install = false,
+      sync_install = false,
       ignore_install = {},
       modules = {},
       incremental_selection = {

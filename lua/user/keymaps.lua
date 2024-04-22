@@ -5,8 +5,7 @@ local opts = { noremap = true, silent = true }
 keymap("n", "<C-i>", "<C-i>", opts)
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = " " vim.g.maplocalleader = " "
 
 -- keymap("n", "<C-i>", "<C-i>", opts)
 
@@ -27,11 +26,14 @@ keymap("n", "<m-l>", "<C-w>l", opts)
 -- Tree toggle
 keymap("n", "<leader><tab>", ":NvimTreeToggle<CR>", opts)
 
-keymap("n", "<m-tab>", "<c-6>", opts)
 
 -- Keybinding for pounce
-keymap("n", "m", "<cmd>Pounce<CR>", opts)
+keymap("n", "+", "<cmd>Pounce<CR>", opts)
+keymap("n", "z", "<cmd>Pounce<CR>", opts)
+-- keymap("n", "<leader>j", "<cmd>Pounce<CR>", opts)
 
+-- Use '  and a letter to jump to a mark
+-- keymap("n", "<leader>m", "m]", opts)
 
 -- Delete multiple spaces
 
@@ -75,11 +77,11 @@ keymap({ "n", "v", "x" }, "<leader>t", ":TailwindSort<CR>", opts)
 --keymap("n", "<Esc><Esc>", "gg=G<C-o>", opts)
 -- keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
 
-keymap("n", "M", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 --keymap("n", "<Esc><Esc>", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
 
 -- Fast close
-keymap("n", "<leader>q", ":bd<CR>", opts)
+-- keymap("n", "<leader>q", ":bd<CR>", opts)
+keymap("n", "<leader>q", ":q<CR>", opts)
 keymap("n", "<leader>Q", ":q!<CR>", opts)
 keymap("n", "<leader>r", ":w<CR>", opts)
 
@@ -106,13 +108,27 @@ keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 
 -- Jump around more easily
 keymap({ "n", "x", "v" }, "<S-j>", "9j", opts)
+-- keymap({ "n", "x", "v" }, "<S-j>", "<C-d>zz", opts)
 keymap({ "n", "x", "v" }, "<S-k>", "9k", opts)
+-- keymap({ "n", "x", "v" }, "<S-k>", "<C-u>zz", opts)
 
 -- Go to definition
+-- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+
+-- Lsp keymaps
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "M", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+
+
+
 
 -- Move line after the current one up
-keymap("n", "<C-j>", "gJdw", opts)
+-- keymap("n", "<C-j>", "gJdw", opts)
+keymap("n", "<C-j>", "J", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -127,7 +143,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- keymap("n", "<leader>l", ":BufferMoveNext<CR>", opts)
 
 keymap("n", "<leader>k", ":bnext<CR>", opts)
-keymap("n", "<leader>j", ":bprev<CR>", opts)
+keymap("n", "<leader>j", "<c-6>", opts)
 keymap("n", "<leader>l", "<C-i>", opts)
 keymap("n", "<leader>h", "<C-o>", opts)
 

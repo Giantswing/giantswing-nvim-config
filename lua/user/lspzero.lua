@@ -1,6 +1,7 @@
 local M = {
    'vonheikemen/lsp-zero.nvim',
    branch = 'v3.x',
+   event = { "BufReadPre", "BufNewFile" },
    dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
@@ -9,17 +10,13 @@ local M = {
       'hrsh7th/cmp-nvim-lsp',
       'l3mon4d3/luasnip',
    },
+   -- Event = 'VeryLazy',
 }
 
 
 
 function M.config()
    local lsp_zero = require "lsp-zero"
-
-   lsp_zero.on_attach(function(client, bufnr)
-      lsp_zero.default_keymaps({ buffer = bufnr,
-         preserve_mappings = true})
-   end)
 
    require('mason').setup({})
    require('mason-lspconfig').setup({
@@ -38,6 +35,9 @@ function M.config()
       },
    })
 
+   lsp_zero.on_attach(function(client, bufnr)
+     lsp_zero.default_keymaps({buffer = bufnr})
+   end)
    -- require('luasnip').setup({
    --   config = {
    --     history = true,
