@@ -1,7 +1,7 @@
 local M = {
    'smoka7/hop.nvim',
-    version = "*",
-    opts = {},
+   version = "*",
+   opts = {},
    dependencies = {
       'tamago324/nlsp-settings.nvim'
    }

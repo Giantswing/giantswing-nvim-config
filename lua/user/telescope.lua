@@ -48,6 +48,7 @@ function M.config()
         "--column",
         "--smart-case",
         "--hidden",
+        "--no-ignore-vcs",
         "--glob=!.git/",
       },
       file_ignore_patterns = { "node_modules" },

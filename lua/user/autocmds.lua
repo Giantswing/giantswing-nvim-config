@@ -40,11 +40,32 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.cmd "checktime"
-  end,
+
+-- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     vim.cmd "checktime"
+--   end,
+-- })
+
+-- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+--   callback = function()
+--     vim.opt_local.relativenumber = false
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+--   callback = function()
+--     vim.opt_local.relativenumber = true
+--   end,
+-- })
+
+vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+ callback = function()
+    vim.cmd [[
+      set laststatus=2
+    ]]
+ end,
 })
 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
