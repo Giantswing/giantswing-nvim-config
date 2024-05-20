@@ -22,39 +22,16 @@
 -- return M
 
 local M = {
-   {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-   },
-   {
-      "rose-pine/neovim",
-      name = "rose-pine",
-      lazy = false,
-      priority = 1000,
-   },
-   {
-      "ayu-theme/ayu-vim",
-      lazy = false,
-      priority = 1000,
-   },
-   {
-      "lunarvim/darkplus.nvim",
-      lazy = false,
-      priority = 1000,
-   },
-
-   {
-      "lunarvim/colorschemes",
-      lazy = false,
-      priority = 1000,
-   },
-   {
-      "rafi/awesome-vim-colorschemes",
-   },
-   {
-      "rebelot/kanagawa.nvim",
-   },
+   { "folke/tokyonight.nvim", },
+   { "rose-pine/neovim", name = "rose-pine", },
+   { "ayu-theme/ayu-vim", },
+   { "lunarvim/darkplus.nvim", },
+   { "lunarvim/colorschemes", },
+   { "rafi/awesome-vim-colorschemes", },
+   { "rebelot/kanagawa.nvim", },
+   { "bluz71/vim-moonfly-colors", },
+   { "bluz71/vim-nightfly-colors", },
+   { "catppuccin/nvim", },
 
    -- config = function()
    --    vim.cmd.colorscheme("ayu")

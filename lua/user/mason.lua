@@ -1,34 +1,30 @@
 local M = {
-  "williamboman/mason-lspconfig.nvim",
+  "williamboman/mason.nvim",
   dependencies = {
-    "williamboman/mason.nvim",
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
+    'l3mon4d3/luasnip',
   },
 }
 
 function M.config()
-  local servers = {
-    "lua_ls",
-    "cssls",
-    "html",
-    "pyright",
-    "bashls",
-    "jsonls",
-    "volar",
-    "intelephense",
-    "quick_lint_js",
-    "html",
-    "tailwindcss"
+  require("mason").setup({})
+  require("mason-lspconfig").setup({})
+
+  require("mason-lspconfig").setup_handlers {
+    --Default handler
+    function (server_name) -- default handler (optional)
+      require("lspconfig")[server_name].setup {}
+    end,
+
+    --Custom handlers
+    -- ["rust_analyzer"] = function ()
+    --   require("rust-tools").setup {}
+    -- end
   }
 
-  require("mason").setup {
-    ui = {
-      border = "rounded",
-    },
-  }
-
-  require("mason-lspconfig").setup {
-    ensure_installed = servers,
-  }
 end
 
 return M

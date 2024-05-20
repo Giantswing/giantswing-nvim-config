@@ -11,6 +11,9 @@ local M = {
       blacklist = {
         "comment",
       },
+      query = {
+        [''] = 'rainbow-delimiters',
+      },
     }
   end,
 }

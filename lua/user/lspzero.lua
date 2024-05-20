@@ -13,37 +13,69 @@ local M = {
    -- Event = 'VeryLazy',
 }
 
-
-
 function M.config()
-   local lsp_zero = require "lsp-zero"
+
+   local lsp_zero = require('lsp-zero')
+
+   lsp_zero.on_attach(function(client, bufnr)
+      lsp_zero.default_keymaps({buffer = bufnr})
+   end)
 
    require('mason').setup({})
    require('mason-lspconfig').setup({
+      ensure_installed = {
+         'tsserver',
+         'volar',
+      },
       handlers = {
-         lsp_zero.default_setup,
-         lua_ls = function()
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+
+         function(server_name)
+            require('lspconfig')[server_name].setup({})
          end,
-         intelephense = function()
-            require('lspconfig').intelephense.setup({})
+
+         tsserver = function()
+            local vue_typescript_plugin = require('mason-registry')
+               .get_package('vue-language-server')
+               :get_install_path()
+            .. '/node_modules/@vue/language-server'
+            .. '/node_modules/@vue/typescript-plugin'
+
+            require('lspconfig').tsserver.setup({
+               init_options = {
+                  plugins = {
+                     {
+                        name = "@vue/typescript-plugin",
+                        location = vue_typescript_plugin,
+                        languages = {'javascript', 'typescript', 'vue'}
+                     },
+                  }
+               },
+               filetypes = {
+                  'javascript',
+                  'javascriptreact',
+                  'javascript.jsx',
+                  'typescript',
+                  'typescriptreact',
+                  'typescript.tsx',
+                  'vue',
+               },
+            })
          end,
+
          volar = function()
-            require('lspconfig').volar.setup({})
+            require('lspconfig').volar.setup({
+               filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+               init_options = {
+                  vue = {
+                     hybridMode = false,
+                  },
+               },
+            })
          end,
+
       },
    })
 
-   lsp_zero.on_attach(function(client, bufnr)
-     lsp_zero.default_keymaps({buffer = bufnr})
-   end)
-   -- require('luasnip').setup({
-   --   config = {
-   --     history = true,
-   --     updateevents = 'TextChanged,TextChangedI',
-   --   },
-   -- })
 end
 
 return M

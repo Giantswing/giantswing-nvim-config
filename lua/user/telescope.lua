@@ -15,8 +15,8 @@ function M.config()
     -- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
     ["<c-f>"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
     -- ["<sc-f>"] = { "<cmd>Telescope help_tags<cr>", "Help" },
-    ["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
-    ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+    -- ["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
+    -- ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
   })
 
   local icons = require("user.icons")

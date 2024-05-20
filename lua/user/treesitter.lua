@@ -23,9 +23,9 @@ function M.config()
       highlight = {
          enable = true,
          additional_vim_regex_highlighting = true,
-         custom_captures = {
-            ["attr.value"] = "TSKeyword"
-         }
+         -- custom_captures = {
+         --    ["attr.value"] = "TSKeyword"
+         -- }
       },
       indent = {
          enable = true,

@@ -27,15 +27,12 @@ keymap("n", "<m-l>", "<C-w>l", opts)
 -- Tree toggle
 keymap("n", "<leader><tab>", ":NvimTreeToggle<CR>", opts)
 
+keymap("n", "<leader><leader>", "zz", opts)
 
 -- Keybinding for pounce
-keymap("n", "+", "<cmd>Pounce<CR>", opts)
--- when z pressed set laststatus to 0 and then run pounce
-keymap("n", "z", ":set laststatus=0<CR>:Pounce<CR>", opts)
--- keymap("n", "z", ":Pounce<CR>", opts)
-
-
-
+-- keymap("n", "+", ":set laststatus=0<CR>:Pounce<CR>", opts)
+-- keymap("n", "z", ":set laststatus=0<CR>:Pounce<CR>", opts)
+keymap("n", "z", ":Pounce<CR>", opts)
 
 -- keymap("n", "<leader>j", "<cmd>Pounce<CR>", opts)
 
@@ -64,9 +61,9 @@ keymap("n", "<leader>wr", "<C-w>=", opts)
 -- Focus region narrow and maximize
 keymap({"v", "x"}, "<leader>wg", "<Plug>NrrwrgnDo<CR><C-w>|<C-w>_", opts)
 
-
 -- Folds
 -- vim.keymap.set('n', '<leader>z', 'za')
+
 
 -- Fast vertical split
 keymap("n", "<leader>v", ":vsplit<CR>", opts)
@@ -202,8 +199,14 @@ keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
 keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
 -- tailwind bearable to work with
-keymap({ "n", "x" }, "j", "gj", opts)
-keymap({ "n", "x" }, "k", "gk", opts)
+-- keymap({ "n", "x" }, "j", "gj", opts)
+-- keymap({ "n", "x" }, "k", "gk", opts)
+
+vim.api.nvim_set_keymap('n', 'k', 'v:count == 0 ? "gk" : "k"', {expr = true, noremap = true})
+vim.api.nvim_set_keymap('v', 'k', 'v:count == 0 ? "gk" : "k"', {expr = true, noremap = true})
+vim.api.nvim_set_keymap('n', 'j', 'v:count == 0 ? "gj" : "j"', {expr = true, noremap = true})
+vim.api.nvim_set_keymap('v', 'j', 'v:count == 0 ? "gj" : "j"', {expr = true, noremap = true})
+
 
 keymap("n", "<leader>ww", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
 

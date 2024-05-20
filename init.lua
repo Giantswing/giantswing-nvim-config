@@ -16,6 +16,11 @@ spec("user.oil")
 spec("user.telescope")
 spec("user.plenary")
 spec("user.lspzero")
+-- spec("user.customlsp")
+
+
+-- spec("user.mason")
+-- spec("user.fzf")
 spec("user.sort")
 spec("user.lualine")
 spec("user.illuminate")
@@ -33,6 +38,7 @@ spec("user.sleuth") --this is for detecting the indentation of a file and adjust
 spec("user.marks")
 spec("user.gitsigns")
 
+-- spec("user.fugitive")
 -- spec("user.minimap")
 
 -- spec("user.narrow")
@@ -42,8 +48,6 @@ spec("user.gitsigns")
 -- spec("user.tailwindsorter")
 spec("user.breadcrumbs")
 
-
-
 -- spec("user.tabbar")
 
 -- spec("user.playground")
@@ -51,51 +55,38 @@ spec("user.breadcrumbs")
 -- spec("user.modificator")
 -- spec("user.hop")
 -- spec("user.neotab")
-spec("user.rainbow") --this sucks, it's not worth it, too slow
+-- spec("user.rainbow") --this sucks, it's not worth it, too slow
 -- spec("user.surfer")
 -- spec("user.devicons")
 --spec('user.mason') --Installs the language servers
 -- spec("user.schemastore")
---spec('user.lspconfig')
+-- spec('user.lspconfig')
 -- spec("user.leap")
 
 spec("user.transparent")
-vim.g.transparent_enabled = true
--- vim.cmd("set guicursor=")
-
-spec("user.transparent")
-vim.g.transparent_enabled = true
--- vim.cmd("set guicursor=")
 
 require("user.lazy")
---
--- vim.cmd("VMDebug")
-vim.cmd("colorscheme darkplus")
--- vim.cmd("colorscheme kanagawa-dragon")
 
+-- vim.cmd("colorscheme darkplus")
+vim.cmd("colorscheme moonfly")
+-- vim.cmd("colorscheme kanagawa-dragon")
+-- vim.cmd("colorscheme tokyonight-night")
+
+vim.cmd("hi TreesitterContext guibg=NONE")
+
+-- vim.g.minimap_width = 10
+-- vim.g.minimap_auto_start = true
+-- vim.g.minimap_auto_start_win_enter = true
+
+
+vim.cmd("hi TreesitterContextBottom gui=underline guisp=Grey")
+vim.cmd("hi TreesitterContextLineNumberBottom gui=underline guisp=Grey")
 
 
 vim.cmd("hi Normal guibg=NONE")
 vim.cmd("hi NonText guibg=NONE")
 vim.cmd("hi SignColumn guibg=NONE")
 vim.cmd("hi EndOfBuffer guibg=NONE")
--- vim.cmd("colorscheme darkplus")
--- vim.cmd("colorscheme kanagawa-dragon")
-vim.cmd("colorscheme tokyonight-night")
 
-vim.cmd("hi TreesitterContext guibg=NONE")
-
-vim.g.minimap_width = 10
-vim.g.minimap_auto_start = true
-vim.g.minimap_auto_start_win_enter = true
-
-
--- vim.cmd("hi TreesitterContextBottom gui=underline guisp=Grey")
--- vim.cmd("hi TreesitterContextLineNumberBottom gui=underline guisp=Grey")
-
-
--- vim.cmd("hi Normal guibg=NONE")
--- vim.cmd("hi NonText guibg=NONE")
--- vim.cmd("hi SignColumn guibg=NONE")
--- vim.cmd("hi EndOfBuffer guibg=NONE")
-
+vim.g.transparent_enabled = true
+-- vim.cmd("set guicursor=")
