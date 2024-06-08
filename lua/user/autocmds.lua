@@ -4,6 +4,18 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
+local counter = 0
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function()
+    counter = counter + 1
+    if counter > 14 then
+      counter = 0
+      vim.cmd "LspRestart"
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "netrw",
